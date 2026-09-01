@@ -3,1428 +3,1216 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Little Something For You 🌷</title>
+
+<title>For Kritika 🌸</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
 
-:root{
-  --pink:#c85d86;
-  --rose:#a94770;
-  --text:#553b48;
-  --soft:#fff7fb;
-  --card:rgba(255,255,255,.72);
-}
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html{
-  scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-  min-height:100vh;
-  overflow-x:hidden;
-  color:var(--text);
-  font-family:"DM Sans",sans-serif;
+    min-height:100vh;
+    overflow-x:hidden;
 
-  background:
-    radial-gradient(circle at 10% 10%,#ffe2ed,transparent 32%),
-    radial-gradient(circle at 90% 80%,#fff0d5,transparent 30%),
-    linear-gradient(135deg,#fffafd,#fff4f8,#fffaf2);
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
 
-  transition:.6s;
+    color:#583d4c;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            #ffdce9,
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            #ffeecf,
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #fffaff,
+            #fff3f8,
+            #fffaf1
+        );
+
+    transition:
+        background .7s ease,
+        color .7s ease;
 }
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
 
 body.night{
-  --text:#f8eaf1;
 
-  background:
-    radial-gradient(circle at 20% 10%,#3c2745,transparent 35%),
-    linear-gradient(135deg,#15121c,#261a27);
+    color:#f9eaf1;
+
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            #4a2d50,
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #15121b,
+            #291c2b
+        );
 }
 
-/* ================= NAVBAR ================= */
+
+/* =========================================================
+   KRITIKA WALLPAPER
+========================================================= */
+
+#kritikaWallpaper{
+
+    position:fixed;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:1;
+}
+
+
+/* Individual words */
+
+.kritikaWord{
+
+    position:absolute;
+
+    font-family:
+        "Brush Script MT",
+        "Segoe Script",
+        cursive;
+
+    font-weight:bold;
+
+    color:rgba(
+        186,
+        60,
+        112,
+        .34
+    );
+
+    text-shadow:
+
+        0 0 5px
+        rgba(255,120,170,.35),
+
+        0 0 15px
+        rgba(255,150,190,.25);
+
+    white-space:nowrap;
+
+    letter-spacing:1px;
+
+    user-select:none;
+
+    animation:
+        kritikaMove
+        6s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+
+body.night .kritikaWord{
+
+    color:rgba(
+        255,
+        165,
+        205,
+        .38
+    );
+
+    text-shadow:
+
+        0 0 8px
+        rgba(255,120,180,.5),
+
+        0 0 18px
+        rgba(255,160,200,.3);
+}
+
+
+@keyframes kritikaMove{
+
+    0%{
+
+        transform:
+            translateY(0)
+            rotate(-5deg);
+
+        opacity:.30;
+    }
+
+    50%{
+
+        opacity:.65;
+    }
+
+    100%{
+
+        transform:
+            translateY(-25px)
+            rotate(5deg);
+
+        opacity:.35;
+    }
+}
+
+
+/* =========================================================
+   PROGRESS BAR
+========================================================= */
+
+#progress{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:0;
+    height:4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ed8eaf,
+            #a94770
+        );
+
+    z-index:1000;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
 
 .nav{
-  position:fixed;
-  top:15px;
-  left:50%;
-  transform:translateX(-50%);
 
-  width:min(900px,calc(100% - 25px));
+    position:fixed;
 
-  padding:11px 17px;
+    top:15px;
+    left:50%;
 
-  border-radius:50px;
-  border:1px solid rgba(255,255,255,.6);
+    transform:
+        translateX(-50%);
 
-  background:rgba(255,255,255,.55);
-  backdrop-filter:blur(20px);
+    width:
+        min(
+            900px,
+            calc(100% - 25px)
+        );
 
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+    padding:
+        11px 18px;
 
-  z-index:100;
+    display:flex;
 
-  box-shadow:0 10px 40px rgba(130,60,90,.12);
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:
+        rgba(255,255,255,.65);
+
+    backdrop-filter:
+        blur(20px);
+
+    border:
+        1px solid
+        rgba(255,255,255,.7);
+
+    border-radius:50px;
+
+    box-shadow:
+        0 10px 40px
+        rgba(120,50,80,.13);
+
+    z-index:100;
 }
+
 
 body.night .nav{
-  background:rgba(30,20,34,.65);
+
+    background:
+        rgba(30,20,35,.75);
+
+    border-color:
+        rgba(255,200,220,.15);
 }
+
 
 .brand{
-  color:var(--rose);
-  font-weight:800;
+
+    color:#a94770;
+
+    font-weight:800;
+
+    letter-spacing:.5px;
 }
 
-.theme{
-  border:0;
-  background:transparent;
-  font-size:20px;
-  cursor:pointer;
+
+.themeButton{
+
+    border:0;
+
+    background:transparent;
+
+    cursor:pointer;
+
+    font-size:21px;
+
+    transition:.3s;
 }
 
-/* ================= PROGRESS ================= */
 
-.progress{
-  position:fixed;
-  top:0;
-  left:0;
-  height:4px;
-  width:0;
+.themeButton:hover{
 
-  background:linear-gradient(
-    90deg,
-    #e58dac,
-    #a94770
-  );
-
-  z-index:200;
+    transform:
+        rotate(25deg)
+        scale(1.15);
 }
 
-/* ================= SECTIONS ================= */
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+main{
+
+    position:relative;
+
+    z-index:5;
+}
+
 
 section{
-  min-height:100vh;
-  padding:110px 18px 70px;
 
-  display:grid;
-  place-items:center;
+    min-height:100vh;
+
+    padding:
+        115px 18px 70px;
+
+    display:grid;
+
+    place-items:center;
 }
+
+
+/* =========================================================
+   GLASS CARD
+========================================================= */
 
 .glass{
-  width:min(900px,100%);
 
-  padding:48px 28px;
+    position:relative;
 
-  border-radius:40px;
+    width:
+        min(
+            900px,
+            100%
+        );
 
-  border:1px solid rgba(255,190,215,.65);
+    padding:
+        50px 30px;
 
-  background:var(--card);
+    text-align:center;
 
-  backdrop-filter:blur(20px);
+    background:
+        rgba(255,255,255,.76);
 
-  box-shadow:
-    0 35px 100px rgba(160,70,110,.15);
+    backdrop-filter:
+        blur(18px);
 
-  text-align:center;
+    border:
+        1px solid
+        rgba(255,185,210,.7);
+
+    border-radius:40px;
+
+    box-shadow:
+        0 35px 100px
+        rgba(150,65,105,.15);
+
+    overflow:hidden;
 }
 
-/* ================= HERO ================= */
+
+body.night .glass{
+
+    background:
+        rgba(38,27,43,.76);
+
+    border-color:
+        rgba(255,200,220,.15);
+}
+
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
 
 .kicker{
-  color:var(--pink);
-  font-size:12px;
-  font-weight:800;
 
-  letter-spacing:4px;
-  text-transform:uppercase;
+    color:#c05a82;
+
+    font-size:12px;
+
+    font-weight:800;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    margin-bottom:15px;
 }
 
-.lilies{
-  font-size:45px;
-  letter-spacing:9px;
-  margin:15px 0;
-
-  animation:sway 4s ease-in-out infinite;
-}
-
-@keyframes sway{
-  50%{
-    transform:rotate(2deg) scale(1.05);
-  }
-}
-
-.cat{
-  font-size:105px;
-  display:inline-block;
-
-  cursor:pointer;
-
-  filter:drop-shadow(
-    0 15px 10px rgba(80,40,60,.15)
-  );
-
-  animation:catFloat 3s ease-in-out infinite;
-}
-
-@keyframes catFloat{
-  50%{
-    transform:translateY(-12px);
-  }
-}
 
 h1,
 h2{
-  font-family:"Cormorant Garamond",serif;
-  color:var(--rose);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    color:#a94770;
 }
+
 
 h1{
-  font-size:clamp(60px,12vw,105px);
-  line-height:.85;
-  margin:20px 0;
+
+    font-size:
+        clamp(
+            58px,
+            12vw,
+            105px
+        );
+
+    line-height:.9;
+
+    margin:
+        18px 0 25px;
 }
+
 
 h2{
-  font-size:clamp(42px,7vw,70px);
-  margin-bottom:18px;
+
+    font-size:
+        clamp(
+            40px,
+            7vw,
+            70px
+        );
+
+    margin-bottom:22px;
 }
+
 
 .lead{
-  max-width:700px;
-  margin:auto;
 
-  font-size:19px;
-  line-height:1.8;
+    max-width:700px;
+
+    margin:auto;
+
+    font-size:19px;
+
+    line-height:1.8;
 }
+
+
+.muted{
+
+    color:#795f6c;
+
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   FLOWERS
+========================================================= */
+
+.lilies{
+
+    font-size:45px;
+
+    letter-spacing:8px;
+
+    margin:
+        12px 0 8px;
+
+    animation:
+        flowerSway
+        4s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes flowerSway{
+
+    50%{
+
+        transform:
+            rotate(2deg)
+            scale(1.05);
+    }
+}
+
+
+/* =========================================================
+   CAT
+========================================================= */
+
+.cat{
+
+    font-size:100px;
+
+    display:inline-block;
+
+    cursor:pointer;
+
+    user-select:none;
+
+    animation:
+        catFloat
+        3s
+        ease-in-out
+        infinite;
+
+    filter:
+        drop-shadow(
+            0 15px 10px
+            rgba(80,40,60,.15)
+        );
+
+    transition:.3s;
+}
+
+
+@keyframes catFloat{
+
+    50%{
+
+        transform:
+            translateY(-12px);
+    }
+}
+
+
+.cat:hover{
+
+    transform:
+        scale(1.1);
+}
+
+
+/* =========================================================
+   SCROLL
+========================================================= */
 
 .scroll{
-  margin-top:35px;
 
-  color:#9d637b;
+    margin-top:35px;
 
-  font-size:12px;
-  letter-spacing:3px;
+    font-size:11px;
+
+    letter-spacing:3px;
+
+    color:#9c647c;
 }
+
 
 .scroll span{
-  display:block;
-  font-size:28px;
 
-  animation:down 1.5s infinite;
+    display:block;
+
+    font-size:27px;
+
+    margin-top:5px;
+
+    animation:
+        down
+        1.5s
+        infinite;
 }
+
 
 @keyframes down{
-  50%{
-    transform:translateY(8px);
-  }
+
+    50%{
+
+        transform:
+            translateY(8px);
+    }
 }
 
-/* ================= REVEAL ================= */
+
+/* =========================================================
+   REVEAL
+========================================================= */
 
 .reveal{
-  opacity:0;
-  transform:translateY(40px);
 
-  transition:
-    opacity 1s ease,
-    transform 1s cubic-bezier(.2,.7,.2,1);
+    opacity:0;
+
+    transform:
+        translateY(40px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s
+        cubic-bezier(.2,.7,.2,1);
 }
+
 
 .reveal.show{
-  opacity:1;
-  transform:none;
+
+    opacity:1;
+
+    transform:none;
 }
 
-/* ================= ENVELOPE ================= */
 
-.envelope-area{
-  width:min(540px,100%);
-  height:330px;
+/* =========================================================
+   ENVELOPE
+========================================================= */
 
-  margin:30px auto;
+.envelopeArea{
 
-  perspective:1200px;
+    width:
+        min(
+            540px,
+            100%
+        );
 
-  cursor:pointer;
+    height:330px;
+
+    margin:
+        30px auto;
+
+    perspective:1200px;
+
+    cursor:pointer;
 }
+
 
 .envelope{
-  width:100%;
-  height:100%;
 
-  position:relative;
+    width:100%;
+    height:100%;
 
-  transform-style:preserve-3d;
+    position:relative;
+
+    transform-style:
+        preserve-3d;
 }
 
-.env-body{
-  position:absolute;
 
-  inset:20px 0 0;
+.envelopeBody{
 
-  background:#f8dce7;
+    position:absolute;
 
-  border-radius:18px;
+    inset:
+        20px 0 0;
 
-  box-shadow:
-    0 25px 50px rgba(120,50,80,.15);
+    background:#f7d8e5;
+
+    border-radius:18px;
+
+    box-shadow:
+        0 25px 50px
+        rgba(120,50,80,.16);
 }
+
 
 .flap{
-  position:absolute;
 
-  left:0;
-  top:20px;
+    position:absolute;
 
-  width:100%;
-  height:150px;
+    top:20px;
+    left:0;
 
-  background:#f3c6d8;
+    width:100%;
+    height:150px;
 
-  clip-path:polygon(
-    0 0,
-    100% 0,
-    50% 100%
-  );
+    background:#f1c1d4;
 
-  transform-origin:top;
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 100%
+        );
 
-  transition:1s;
+    transform-origin:top;
 
-  z-index:4;
+    transition:1s;
+
+    z-index:4;
 }
+
 
 .paper{
-  position:absolute;
 
-  left:8%;
-  right:8%;
-  top:70px;
+    position:absolute;
 
-  height:205px;
+    left:8%;
+    right:8%;
 
-  padding:25px;
+    top:70px;
 
-  background:#fffdf8;
+    height:205px;
 
-  border-radius:12px;
+    padding:25px;
 
-  z-index:2;
+    background:#fffdf8;
 
-  box-shadow:
-    0 8px 25px rgba(80,40,50,.1);
+    border-radius:12px;
 
-  transition:1s;
+    z-index:2;
 
-  text-align:left;
+    text-align:left;
+
+    line-height:1.7;
+
+    box-shadow:
+        0 8px 25px
+        rgba(80,40,50,.12);
+
+    transition:1s;
 }
+
 
 .seal{
-  position:absolute;
 
-  top:112px;
-  left:50%;
+    position:absolute;
 
-  transform:translateX(-50%);
+    top:112px;
+    left:50%;
 
-  width:55px;
-  height:55px;
+    transform:
+        translateX(-50%);
 
-  border-radius:50%;
+    width:55px;
+    height:55px;
 
-  background:#bd587e;
+    display:grid;
 
-  color:white;
+    place-items:center;
 
-  display:grid;
-  place-items:center;
+    border-radius:50%;
 
-  z-index:6;
+    background:#bd587e;
 
-  transition:.5s;
+    color:white;
+
+    font-size:20px;
+
+    z-index:6;
+
+    transition:.5s;
 }
+
 
 .envelope.open .flap{
-  transform:rotateX(180deg);
-  z-index:1;
+
+    transform:
+        rotateX(180deg);
+
+    z-index:1;
 }
+
 
 .envelope.open .paper{
-  transform:translateY(-125px);
-  z-index:5;
+
+    transform:
+        translateY(-125px);
+
+    z-index:5;
 }
+
 
 .envelope.open .seal{
-  opacity:0;
-  transform:
-    translateX(-50%)
-    scale(.4);
+
+    opacity:0;
+
+    transform:
+        translateX(-50%)
+        scale(.3);
 }
 
-/* ================= LETTER ================= */
+
+/* =========================================================
+   LETTER
+========================================================= */
 
 .letter{
-  max-width:760px;
 
-  margin:auto;
+    max-width:760px;
 
-  padding:35px;
+    margin:auto;
 
-  text-align:left;
+    padding:35px;
 
-  font-size:18px;
-  line-height:1.95;
+    text-align:left;
 
-  background:rgba(255,250,253,.75);
+    font-size:18px;
 
-  border:1px solid #f1d4df;
+    line-height:1.95;
 
-  border-radius:30px;
+    background:
+        rgba(255,250,253,.88);
 
-  box-shadow:
-    0 20px 60px rgba(160,70,110,.08);
+    border:
+        1px solid
+        #f0d1de;
+
+    border-radius:30px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(150,65,105,.08);
 }
+
 
 body.night .letter{
-  background:rgba(40,28,42,.7);
-  border-color:rgba(255,210,230,.12);
+
+    background:
+        rgba(42,29,46,.8);
+
+    border-color:
+        rgba(255,200,220,.12);
 }
+
 
 .letter p{
-  margin-bottom:18px;
+
+    margin-bottom:18px;
 }
+
 
 .highlight{
-  color:var(--rose);
-  font-weight:800;
+
+    color:#a94770;
+
+    font-weight:800;
 }
+
 
 .quote{
-  padding-top:25px;
 
-  border-top:1px solid #efd7e1;
+    padding-top:25px;
 
-  text-align:center;
+    margin-top:25px;
 
-  font-family:"Cormorant Garamond",serif;
+    border-top:
+        1px solid
+        #efd7e1;
 
-  font-size:25px;
+    text-align:center;
 
-  font-style:italic;
+    font-family:
+        Georgia,
+        serif;
 
-  color:#87566d;
+    font-size:23px;
+
+    font-style:italic;
+
+    color:#87566d;
 }
 
-/* ================= CARDS ================= */
+
+/* =========================================================
+   MEMORY CARDS
+========================================================= */
 
 .cards{
-  display:grid;
 
-  grid-template-columns:
-    repeat(3,1fr);
+    display:grid;
 
-  gap:18px;
+    grid-template-columns:
+        repeat(3,1fr);
 
-  margin-top:30px;
+    gap:18px;
+
+    margin-top:30px;
 }
+
 
 .memory{
-  padding:28px;
 
-  text-align:left;
+    padding:28px;
 
-  border-radius:25px;
+    text-align:left;
 
-  background:rgba(255,255,255,.55);
+    border-radius:25px;
 
-  border:1px solid #f0d5df;
+    background:
+        rgba(255,255,255,.6);
 
-  transition:.35s;
+    border:
+        1px solid
+        #efd4df;
+
+    transition:.35s;
 }
+
+
+body.night .memory{
+
+    background:
+        rgba(45,30,48,.7);
+
+    border-color:
+        rgba(255,200,220,.12);
+}
+
 
 .memory:hover{
-  transform:
-    translateY(-10px)
-    rotate(-1deg);
 
-  box-shadow:
-    0 25px 50px rgba(160,70,110,.13);
+    transform:
+        translateY(-10px)
+        rotate(-1deg);
+
+    box-shadow:
+        0 25px 50px
+        rgba(150,65,105,.15);
 }
 
-.memory-icon{
-  font-size:38px;
+
+.icon{
+
+    font-size:40px;
 }
+
 
 .memory h3{
-  color:var(--rose);
-  margin:12px 0;
+
+    color:#a94770;
+
+    margin:
+        12px 0;
 }
+
 
 .memory p{
-  line-height:1.7;
-  color:#765969;
+
+    color:var(--muted);
+
+    line-height:1.7;
 }
 
-/* ================= BUTTONS ================= */
+
+/* =========================================================
+   BUTTONS
+========================================================= */
 
 .buttons{
-  display:flex;
 
-  justify-content:center;
+    display:flex;
 
-  flex-wrap:wrap;
+    justify-content:center;
 
-  gap:12px;
+    align-items:center;
 
-  margin-top:25px;
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-top:28px;
 }
+
 
 .btn{
-  border:0;
 
-  padding:15px 27px;
+    border:0;
 
-  border-radius:50px;
+    padding:
+        15px 27px;
 
-  background:var(--pink);
+    border-radius:50px;
 
-  color:white;
+    background:#c85d86;
 
-  font-weight:800;
+    color:white;
 
-  font-size:15px;
+    font-size:15px;
 
-  cursor:pointer;
+    font-weight:800;
 
-  box-shadow:
-    0 10px 25px rgba(190,80,125,.3);
+    cursor:pointer;
 
-  transition:.25s;
+    box-shadow:
+        0 10px 25px
+        rgba(190,80,125,.3);
+
+    transition:.25s;
 }
+
 
 .btn:hover{
-  transform:
-    translateY(-4px)
-    scale(1.03);
+
+    transform:
+        translateY(-4px)
+        scale(1.03);
 }
+
 
 .btn.alt{
-  background:#f5d7e2;
-  color:#85445e;
+
+    background:#f4d5e1;
+
+    color:#85445e;
 }
+
 
 .status{
-  min-height:30px;
 
-  margin-top:18px;
+    min-height:30px;
 
-  color:var(--rose);
+    margin-top:18px;
 
-  font-weight:800;
+    color:#a94770;
+
+    font-weight:800;
 }
 
-/* ================= FINAL ================= */
 
-.final-card{
-  width:min(800px,100%);
+/* =========================================================
+   FINAL CARD
+========================================================= */
 
-  padding:60px 28px;
+.finalCard{
 
-  border-radius:42px;
+    width:
+        min(
+            800px,
+            100%
+        );
 
-  background:var(--card);
+    padding:
+        60px 28px;
 
-  border:1px solid #f0cfdd;
+    text-align:center;
 
-  box-shadow:
-    0 35px 100px rgba(160,70,110,.15);
+    border-radius:42px;
+
+    background:
+        var(--card);
+
+    border:
+        1px solid
+        #efcfdd;
+
+    box-shadow:
+        0 35px 100px
+        rgba(150,65,105,.15);
 }
 
-.final-heart{
-  font-size:90px;
 
-  animation:heartbeat 1.1s infinite;
+.finalHeart{
+
+    font-size:90px;
+
+    animation:
+        heartbeat
+        1.1s
+        infinite;
 }
+
 
 @keyframes heartbeat{
-  50%{
-    transform:scale(1.15);
-  }
+
+    50%{
+
+        transform:
+            scale(1.15);
+    }
 }
 
-/* ================= HEARTS ================= */
+
+/* =========================================================
+   HEARTS
+========================================================= */
 
 .heart{
-  position:fixed;
 
-  pointer-events:none;
+    position:fixed;
 
-  z-index:500;
+    pointer-events:none;
 
-  animation:
-    heartUp 1.8s
-    cubic-bezier(.2,.7,.2,1)
-    forwards;
+    z-index:900;
+
+    animation:
+        heartAnimation
+        1.8s
+        ease
+        forwards;
 }
 
-@keyframes heartUp{
 
-  0%{
-    opacity:0;
-    transform:
-      translateY(0)
-      scale(.4);
-  }
+@keyframes heartAnimation{
 
-  20%{
-    opacity:1;
-  }
+    0%{
 
-  100%{
-    opacity:0;
+        opacity:0;
 
-    transform:
-      translateY(-180px)
-      scale(1.5)
-      rotate(25deg);
-  }
+        transform:
+            translateY(0)
+            scale(.4);
+    }
+
+    20%{
+
+        opacity:1;
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:
+            translateY(-180px)
+            scale(1.5)
+            rotate(25deg);
+    }
 }
 
-/* ================= FOOTER ================= */
+
+/* =========================================================
+   FOOTER
+========================================================= */
 
 footer{
-  text-align:center;
 
-  padding:25px;
+    position:relative;
 
-  color:#a4778a;
+    z-index:5;
 
-  font-size:13px;
+    text-align:center;
+
+    padding:25px;
+
+    color:#a4778a;
+
+    font-size:13px;
 }
 
-/* ================= MOBILE ================= */
+
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media(max-width:700px){
 
-  .glass{
-    padding:38px 18px;
-  }
+    .glass{
 
-  .cat{
-    font-size:80px;
-  }
+        padding:
+            38px 18px;
+    }
 
-  .lilies{
-    font-size:32px;
-    letter-spacing:4px;
-  }
+    .cat{
 
-  .letter{
-    padding:23px;
-    font-size:16px;
-  }
+        font-size:80px;
+    }
 
-  .cards{
-    grid-template-columns:1fr;
-  }
+    .lilies{
 
-  .envelope-area{
-    height:280px;
-  }
+        font-size:31px;
 
-  .paper{
-    height:180px;
-  }
+        letter-spacing:4px;
+    }
+
+    .letter{
+
+        padding:23px;
+
+        font-size:16px;
+    }
+
+    .cards{
+
+        grid-template-columns:1fr;
+    }
+
+    .envelopeArea{
+
+        height:280px;
+    }
+
+    .paper{
+
+        height:180px;
+    }
+
+    .kritikaWord{
+
+        font-size:16px;
+    }
 }
+
 </style>
 </head>
 
+
 <body>
 
-<!-- Progress bar -->
-<div class="progress" id="progress"></div>
+
+<!-- =========================================================
+     KRITIKA BACKGROUND
+========================================================= -->
+
+<div
+    id="kritikaWallpaper">
+</div>
 
 
-<!-- Navigation -->
+<!-- =========================================================
+     PROGRESS
+========================================================= -->
+
+<div id="progress"></div>
+
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
 <nav class="nav">
 
-  <div class="brand">
-    🌷 A Little Message
-  </div>
-
-  <button
-    class="theme"
-    id="themeBtn"
-  >
-    🌙
-  </button>
-
-</nav>
-
-
-<main>
-
-<!-- =====================================================
-     HERO
-===================================================== -->
-
-<section>
-
-  <div class="glass reveal">
-
-    <div class="kicker">
-      For someone I genuinely value
-    </div>
-
-    <div class="lilies">
-      🌸 🪷 🌷 🪷 🌸
-    </div>
-
-    <div
-      class="cat"
-      id="heroCat"
-    >
-      🐱
-    </div>
-
-    <h1>
-      I'm Sorry.
-    </h1>
-
-    <p class="lead">
-      I made this little place just for you...
-      because sometimes a simple “sorry”
-      isn't enough to explain what is actually
-      in your heart.
-    </p>
-
-    <div class="scroll">
-      TAKE A LITTLE WALK WITH ME
-      <span>↓</span>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     ENVELOPE
-===================================================== -->
-
-<section>
-
-  <div class="glass reveal">
-
-    <div class="kicker">
-      Something I wanted to say properly
-    </div>
-
-    <h2>
-      Open this 💌
-    </h2>
-
-    <div
-      class="envelope-area"
-      id="envelopeArea"
-    >
-
-      <div
-        class="envelope"
-        id="envelope"
-      >
-
-        <div class="env-body"></div>
-
-        <div class="paper">
-
-          <strong>
-            Hey you, 🌸
-          </strong>
-
-          <br><br>
-
-          <span>
-            There is something I really
-            wanted you to know...
-          </span>
-
-          <br><br>
-
-          <strong style="color:#b44973">
-            You were never someone I hated.
-          </strong>
-
-        </div>
-
-        <div class="flap"></div>
-
-        <div class="seal">
-          ♥
-        </div>
-
-      </div>
-
-    </div>
-
-    <p>
-      Tap the envelope to open it.
-    </p>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     LETTER
-===================================================== -->
-
-<section>
-
-  <div class="glass reveal">
-
-    <div class="kicker">
-      What I actually want you to know
-    </div>
-
-    <h2>
-      It was never hate. 🤍
-    </h2>
-
-    <div class="letter">
-
-      <p>
-        <strong>Hey,</strong>
-      </p>
-
-      <p>
-        I'm genuinely sorry if my words,
-        silence, or behaviour ever made you
-        feel that
-        <span class="highlight">
-          I hate you
-        </span>.
-      </p>
-
-      <p>
-        I can understand why you may have
-        felt that way, and I'm sorry that
-        I made you feel like that.
-      </p>
-
-      <p>
-        But the truth is actually very simple.
-        I really like your
-        <span class="highlight">
-          kindness
-        </span>.
-        I value your
-        <span class="highlight">
-          friendship
-        </span>.
-      </p>
-
-      <p>
-        And honestly...
-        I genuinely
-        <span class="highlight">
-          love talking to you every day.
-        </span>
-        ❤️
-      </p>
-
-      <p>
-        Sometimes I don't express myself
-        properly. Sometimes my words or
-        actions may come across differently
-        than what I actually mean.
-      </p>
-
-      <p>
-        But I never wanted you to feel
-        unwanted, disliked, or unimportant.
-      </p>
-
-      <p>
-        I don't want one misunderstanding
-        to erase all the good conversations,
-        laughs and little moments that made
-        this friendship special to me.
-      </p>
-
-      <div class="quote">
-
-        “Some people quietly become
-        a favourite part of your day,
-        simply because talking to them
-        feels good.”
-
-      </div>
-
-      <p style="text-align:center;margin-top:20px">
-        🌷 🐱 ❤️ 🐱 🌷
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     THREE TRUTHS
-===================================================== -->
-
-<section>
-
-  <div class="glass reveal">
-
-    <div class="kicker">
-      Three little truths
-    </div>
-
-    <h2>
-      Things I don't say enough.
-    </h2>
-
-    <div class="cards">
-
-      <div class="memory">
-
-        <div class="memory-icon">
-          🌸
-        </div>
-
-        <h3>
-          Your kindness
-        </h3>
-
-        <p>
-          I genuinely admire how kind
-          you can be. It's one of the
-          things I appreciate about you.
-        </p>
-
-      </div>
-
-
-      <div class="memory">
-
-        <div class="memory-icon">
-          💬
-        </div>
-
-        <h3>
-          Our conversations
-        </h3>
-
-        <p>
-          Talking to you has become
-          a normal little part of my day —
-          and honestly, I like that.
-        </p>
-
-      </div>
-
-
-      <div class="memory">
-
-        <div class="memory-icon">
-          🤝
-        </div>
-
-        <h3>
-          Our friendship
-        </h3>
-
-        <p>
-          I don't take our friendship
-          for granted. I'd rather clear
-          a misunderstanding than lose it.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     QUESTION
-===================================================== -->
-
-<section>
-
-  <div class="glass reveal">
-
-    <div class="kicker">
-      One last question
-    </div>
-
-    <div
-      class="cat"
-      id="questionCat"
-    >
-      🥺
-    </div>
-
-    <h2>
-      Do you still think I hate you?
-    </h2>
-
-    <p class="lead">
-      Be honest...
-      I can handle it. 😭
-    </p>
-
-    <div class="buttons">
-
-      <button
-        class="btn"
-        id="yesBtn"
-      >
-        A little… 🥺
-      </button>
-
-      <button
-        class="btn alt"
-        id="noBtn"
-      >
-        No, I understand ❤️
-      </button>
-
-    </div>
-
-    <div
-      class="status"
-      id="status"
-    ></div>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     FINAL
-===================================================== -->
-
-<section>
-
-  <div class="final-card reveal">
-
-    <div class="final-heart">
-      💗
-    </div>
-
-    <div class="kicker">
-      Thank you for listening
-    </div>
-
-    <h2>
-      Let's keep the friendship.
-    </h2>
-
-    <p class="lead">
-
-      I don't need a perfect answer
-      from you.
-
-      I just wanted you to know that
-      I care about this friendship,
-      I appreciate you,
-      and I genuinely enjoy having
-      you in my day.
-
-    </p>
-
-    <p style="
-      font-size:22px;
-      margin-top:25px;
-    ">
-
-      No pressure.
-      No drama.
-      Just a sincere sorry. 🌷
-
-    </p>
-
-    <div class="buttons">
-
-      <button
-        class="btn"
-        id="talkBtn"
-      >
-        Okay, let's talk 💬
-      </button>
-
-      <button
-        class="btn alt"
-        id="replayBtn"
-      >
-        Read it again ↻
-      </button>
-
-    </div>
-
-  </div>
-
-</section>
-
-</main>
-
-
-<footer>
-
-  Made with flowers 🌸,
-  a tiny cat 🐱,
-  and an honest apology. ❤️
-
-</footer>
-
-
-<script>
-
-/* =====================================================
-   SCROLL PROGRESS
-===================================================== */
-
-window.addEventListener("scroll", () => {
-
-  const page =
-    document.documentElement;
-
-  const percentage =
-    (page.scrollTop /
-    (page.scrollHeight - page.clientHeight))
-    * 100;
-
-  document.getElementById("progress")
-    .style.width =
-    percentage + "%";
-
-});
-
-
-/* =====================================================
-   SCROLL REVEAL
-===================================================== */
-
-const observer =
-  new IntersectionObserver(
-    entries => {
-
-      entries.forEach(entry => {
-
-        if(entry.isIntersecting){
-
-          entry.target
-            .classList
-            .add("show");
-
-        }
-
-      });
-
-    },
-    {
-      threshold:.15
-    }
-  );
-
-
-document
-  .querySelectorAll(".reveal")
-  .forEach(el => observer.observe(el));
-
-
-/* =====================================================
-   ENVELOPE
-===================================================== */
-
-document
-  .getElementById("envelopeArea")
-  .addEventListener("click", () => {
-
-    document
-      .getElementById("envelope")
-      .classList
-      .toggle("open");
-
-  });
-
-
-/* =====================================================
-   CAT
-===================================================== */
-
-function catLove(cat){
-
-  cat.textContent = "😻";
-
-  hearts(18);
-
-  setTimeout(() => {
-
-    cat.textContent = "🐱";
-
-  },1400);
-
-}
-
-
-document
-  .getElementById("heroCat")
-  .onclick = function(){
-
-    catLove(this);
-
-  };
-
-
-document
-  .getElementById("questionCat")
-  .onclick = function(){
-
-    catLove(this);
-
-  };
-
-
-/* =====================================================
-   NIGHT MODE
-===================================================== */
-
-document
-  .getElementById("themeBtn")
-  .onclick = function(){
-
-    document.body
-      .classList
-      .toggle("night");
-
-    this.textContent =
-      document.body.classList.contains("night")
-      ? "☀️"
-      : "🌙";
-
-  };
-
-
-/* =====================================================
-   QUESTION
-===================================================== */
-
-const yesBtn =
-  document.getElementById("yesBtn");
-
-const noBtn =
-  document.getElementById("noBtn");
-
-const status =
-  document.getElementById("status");
-
-let attempts = 0;
-
-
-const replies = [
-
-  "Okay… but I hope you know I really didn't mean that. 🥺",
-
-  "I promise this page was made with good intentions. 🌷",
-
-  "Please don't let a misunderstanding speak louder than our friendship. 🤍",
-
-  "I'll explain myself properly. Just don't disappear. 🐱",
-
-  "One more sincere sorry. ❤️"
-
-];
-
-
-yesBtn.onclick = function(){
-
-  status.textContent =
-    replies[
-      Math.min(
-        attempts,
-        replies.length - 1
-      )
-    ];
-
-  attempts++;
-
-  hearts(25);
-
-};
-
-
-noBtn.onclick = function(){
-
-  status.textContent =
-    "That means a lot. ❤️ Thank you for understanding.";
-
-  hearts(40);
-
-  setTimeout(() => {
-
-    document
-      .querySelector(".final-card")
-      .scrollIntoView({
-        behavior:"smooth"
-      });
-
-  },600);
-
-};
-
-
-/* =====================================================
-   PLAYFUL BUTTON
-===================================================== */
-
-noBtn.addEventListener(
-  "mouseenter",
-  function(){
-
-    if(attempts < 3){
-
-      const x =
-        Math.random()*70 - 35;
-
-      const y =
-        Math.random()*30 - 15;
-
-      this.style.transform =
-        `translate(${x}px,${y}px)`;
-
-    }
-
-  }
-);
-
-
-/* =====================================================
-   FINAL BUTTON
-===================================================== */
-
-document
-  .getElementById("talkBtn")
-  .onclick = function(){
-
-    hearts(50);
-
-    alert(
-      "Now go talk to her properly. ❤️\n\n" +
-      "The website did its part. 😄🌷"
-    );
-
-  };
-
-
-document
-  .getElementById("replayBtn")
-  .onclick = function(){
-
-    window.scrollTo({
-      top:0,
-      behavior:"smooth"
-    });
-
-  };
-
-
-/* =====================================================
-   HEART EFFECT
-===================================================== */
-
-function hearts(amount){
-
-  const symbols = [
-    "❤️",
-    "💗",
-    "💖",
-    "🌸",
-    "✨",
-    "🪷",
-    "♡"
-  ];
-
-
-  for(let i=0;i<amount;i++){
-
-    const heart =
-      document.createElement("div");
-
-    heart.className = "heart";
-
-    heart.textContent =
-      symbols[
-        Math.floor(
-          Math.random()*symbols.length
-        )
-      ];
-
-
-    heart.style.left =
-      (5 + Math.random()*90) + "vw";
-
-    heart.style.top =
-      (50 + Math.random()*35) + "vh";
-
-
-    heart.style.fontSize =
-      (18 + Math.random()*22) + "px";
-
-
-    document.body
-      .appendChild(heart);
-
-
-    setTimeout(() => {
-
-      heart.remove();
-
-    },2200);
-
-  }
-
-}
-
-
-/* =====================================================
-   WELCOME EFFECT
-===================================================== */
-
-window.addEventListener(
-  "load",
-  () => {
-
-    setTimeout(() => {
-
-      hearts(15);
-
-    },700);
-
-  }
-);
-
-</script>
-
-</body>
-</html>
+    <div class="brand">
+        🌷
